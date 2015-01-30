@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014, Intel Corporation.
+# Copyright (c) 2014, 2015, Intel Corporation.
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms and conditions of the GNU General Public License,
@@ -15,6 +15,7 @@
 Peripheral Emulator
 """
 
+import sys
 import time
 import logging
 import argparse
@@ -200,3 +201,14 @@ class Emulator(object):
             return -1
     # pylint: enable=too-few-public-methods
 
+def main(argv=sys.argv[1:]):
+    """
+    Command line entry point.
+    """
+    # pylint: disable=invalid-name
+    emulator = Emulator()
+    # pylint: enable=invalid-name
+    emulator.main()
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
